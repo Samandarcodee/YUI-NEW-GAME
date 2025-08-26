@@ -1,0 +1,51 @@
+{
+  "name": "telegram-mini-app-game",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Telegram Mini App Game Module with Slot Machine, Daily Wheel, and Leaderboard",
+  "main": "index.js",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "build:prod": "tsc && vite build --mode production",
+    "preview": "vite preview",
+    "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
+    "deploy": "npm run build:prod && vercel --prod"
+  },
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "@twa-dev/sdk": "^6.9.1",
+    "framer-motion": "^10.16.4",
+    "lucide-react": "^0.292.0",
+    "clsx": "^2.0.0",
+    "tailwind-merge": "^2.0.0"
+  },
+  "devDependencies": {
+    "@types/react": "^18.2.37",
+    "@types/react-dom": "^18.2.15",
+    "@typescript-eslint/eslint-plugin": "^6.10.0",
+    "@typescript-eslint/parser": "^6.10.0",
+    "@vitejs/plugin-react": "^4.0.3",
+    "autoprefixer": "^10.4.14",
+    "eslint": "^8.53.0",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "eslint-plugin-react-refresh": "^0.4.4",
+    "postcss": "^8.4.27",
+    "tailwindcss": "^3.3.3",
+    "typescript": "^5.2.2",
+    "vite": "^4.4.5"
+  },
+  "keywords": [
+    "telegram",
+    "mini-app",
+    "game",
+    "slot-machine",
+    "daily-wheel",
+    "leaderboard",
+    "uzbek",
+    "uzbekistan"
+  ],
+  "author": "Your Name",
+  "license": "MIT"
+}
