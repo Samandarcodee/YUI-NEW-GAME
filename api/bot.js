@@ -8,7 +8,7 @@ const botConfig = {
   token: process.env.BOT_TOKEN || '8081107965:AAEb0sgswU1P66H2EVUyZhZZZqqwsp7v3E8',
   botName: 'Pul_toptt_bot',
   appName: 'O\'yin Dunyosi',
-  webAppUrl: 'https://yui-new-game-5484.vercel.app'
+  webAppUrl: 'https://stolgame.vercel.app'
 };
 
 // User data storage (in production, use database)
@@ -347,7 +347,7 @@ bot.on('error', (error) => {
 // Start webhook mode
 async function startWebhook() {
   try {
-    const webhookUrl = `https://yui-new-game-5484.vercel.app/api/bot`;
+    const webhookUrl = `https://stolgame.vercel.app/api/bot`;
     await bot.setWebHook(webhookUrl);
     console.log('Webhook set successfully:', webhookUrl);
   } catch (error) {
