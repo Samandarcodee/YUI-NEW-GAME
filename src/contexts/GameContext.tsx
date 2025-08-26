@@ -85,6 +85,7 @@ interface GameContextType {
   purchaseWheelSpin: () => boolean;
   getReferralBonus: (referrerId: string) => void;
   updateLeaderboard: () => void;
+  sendToTelegramBot: (gameType: string, result: any) => void;
 }
 
 const GameContext = createContext<GameContextType | undefined>(undefined);
@@ -322,6 +323,11 @@ export const GameProvider: React.FC<GameProviderProps> = ({ children }) => {
     loadLeaderboard();
   };
 
+  const sendToTelegramBot = (gameType: string, result: any) => {
+    // TODO: Implement actual Telegram bot sending logic
+    console.log(`Sending ${gameType} result to Telegram bot:`, result);
+  };
+
   const value: GameContextType = {
     state,
     playSlotMachine,
@@ -329,7 +335,8 @@ export const GameProvider: React.FC<GameProviderProps> = ({ children }) => {
     purchaseSpin,
     purchaseWheelSpin,
     getReferralBonus,
-    updateLeaderboard
+    updateLeaderboard,
+    sendToTelegramBot
   };
 
   return (
