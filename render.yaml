@@ -1,0 +1,9 @@
+services:
+  - type: web
+    name: yui-game-bot
+    env: node
+    buildCommand: npm install
+    startCommand: npm run bot
+    plan: free
+    healthCheckPath: /
+    autoDeploy: true

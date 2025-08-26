@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "name": "yui-game-bot",
+  "functions": {
+    "api/bot.js": {
+      "runtime": "nodejs18.x"
+    }
+  },
+  "env": {
+    "BOT_TOKEN": "8081107965:AAEb0sgswU1P66H2EVUyZhZZZqqwsp7v3E8"
+  }
+}

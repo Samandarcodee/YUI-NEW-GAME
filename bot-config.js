@@ -6,6 +6,11 @@ import TelegramBot from 'node-telegram-bot-api';
 
 console.log('Starting bot configuration...');
 
+// Health monitoring and auto-restart
+let restartCount = 0;
+const MAX_RESTARTS = 10;
+const RESTART_DELAY = 5000; // 5 seconds
+
 // User data storage (in production, use database)
 const userData = new Map();
 
@@ -427,12 +432,54 @@ O'yinni boshlash uchun /game buyrug'ini yoki "🎮 O'yinni boshlash" tugmasini b
     // Error handling
     bot.on('error', (error) => {
       console.error('Bot error:', error);
+      
+      // Auto-restart on error
+      if (restartCount < MAX_RESTARTS) {
+        console.log(`Restarting bot due to error (attempt ${restartCount + 1}/${MAX_RESTARTS})...`);
+        restartCount++;
+        setTimeout(() => {
+          try {
+            bot.stopPolling();
+            setupBot();
+          } catch (restartError) {
+            console.error('Failed to restart bot:', restartError);
+          }
+        }, RESTART_DELAY);
+      } else {
+        console.error('Max restart attempts reached. Bot stopped.');
+      }
     });
 
     // Polling error handling
     bot.on('polling_error', (error) => {
       console.error('Polling error:', error);
+      
+      // Auto-restart on polling error
+      if (restartCount < MAX_RESTARTS) {
+        console.log(`Restarting bot due to polling error (attempt ${restartCount + 1}/${MAX_RESTARTS})...`);
+        restartCount++;
+        setTimeout(() => {
+          try {
+            bot.stopPolling();
+            setupBot();
+          } catch (restartError) {
+            console.error('Failed to restart bot:', restartError);
+          }
+        }, RESTART_DELAY);
+      } else {
+        console.error('Max restart attempts reached. Bot stopped.');
+      }
     });
+
+    // Health check - send heartbeat every hour
+    setInterval(() => {
+      try {
+        console.log('Bot health check: Running normally');
+        // You can add more health checks here
+      } catch (error) {
+        console.error('Health check failed:', error);
+      }
+    }, 3600000); // Every hour
 
     console.log('Bot is running...');
     return bot;
