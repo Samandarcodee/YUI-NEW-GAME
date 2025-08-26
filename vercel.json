@@ -1,8 +1,6 @@
 {
   "version": 2,
   "name": "telegram-mini-app-game",
-  "buildCommand": "npm run build",
-  "outputDirectory": "dist",
   "rewrites": [
     {
       "source": "/api/(.*)",
@@ -27,8 +25,5 @@
         }
       ]
     }
-  ],
-  "env": {
-    "NODE_ENV": "production"
-  }
+  ]
 }

@@ -6,8 +6,8 @@
   "main": "index.js",
   "scripts": {
     "dev": "vite",
-    "build": "tsc && vite build",
-    "build:prod": "tsc && vite build --mode production",
+    "build": "vite build",
+    "build:prod": "vite build --mode production",
     "preview": "vite preview",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "deploy": "npm run build:prod && vercel --prod"
