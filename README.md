@@ -1,4 +1,4 @@
-# YUI NEW GAME - Telegram Mini App
+# PUL TOP - Telegram Mini App
 
 🎮 **Uzbek gaming platform with Slot Machine, Daily Wheel, and Leaderboard**
 
@@ -11,5 +11,5 @@
 - 🎰 Slot Machine Game
 - 🎡 Daily Wheel
 - 🏆 Leaderboard
-- 💰 Star System
+- 💰 Pul System
 - 📱 Telegram Mini App Integration
