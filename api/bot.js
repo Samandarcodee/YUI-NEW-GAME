@@ -5,9 +5,9 @@ import TelegramBot from 'node-telegram-bot-api';
 
 // Bot configuration
 const botConfig = {
-  token: process.env.BOT_TOKEN || '8245319536:AAE9ofodgLDe38G44wRoiucsAjiADh5jdjI',
-  botName: 'STARS_YUTT_BOT',
-  appName: 'O\'yin Dunyosi',
+  token: process.env.BOT_TOKEN || '8081107965:AAEb0sgswU1P66H2EVUyZhZZZqqwsp7v3E8',
+  botName: 'PUL_TOP_BOT',
+  appName: 'Pul Top O\'yini',
   webAppUrl: 'https://yui-new-game-7z5d.vercel.app'
 };
 
@@ -139,7 +139,7 @@ const bot = new TelegramBot(botConfig.token, { polling: false });
 
 // Set bot commands
 bot.setMyCommands([
-  { command: 'start', description: 'Start the STARS YUT game bot' },
+  { command: 'start', description: 'Start the Pul Top game bot' },
   { command: 'game', description: 'Open the gaming platform' },
   { command: 'help', description: 'Get help and instructions' },
   { command: 'stats', description: 'View your game statistics' },
@@ -155,15 +155,15 @@ async function handleStart(msg) {
   // Initialize user
   const user = initializeUser(userId, msg.from);
   
-  const welcomeMessage = `🎮 *STARS YUT - O'yin Dunyosiga xush kelibsiz, ${user.firstName}!*
+  const welcomeMessage = `🎮 *PUL TOP - O'yin Dunyosiga xush kelibsiz, ${user.firstName}!*
 
 Bu bot orqali siz:
 • 🎰 Slot Machine o'yinini o'ynashingiz mumkin
 • 🎡 Kunlik g'ildirakni aylantirishingiz mumkin  
 • 🏆 Reytingda raqobatlashishingiz mumkin
-• ⭐ Yulduzlar yutib olishingiz mumkin
+• 💰 Pul yutib olishingiz mumkin
 
-💰 *Balansingiz:* ${user.balance} yulduz
+💰 *Balansingiz:* ${user.balance} pul
 🎰 *Aylantirishlar:* ${user.gameStats.spinsLeft}/3
 🎡 *G'ildirak:* ${user.gameStats.wheelSpinsLeft}/1
 
@@ -197,7 +197,7 @@ async function handleGame(msg) {
   
   const gameMessage = `🎮 *O'yin platformasi*
 
-💰 *Balansingiz:* ${user.balance} yulduz
+💰 *Balansingiz:* ${user.balance} pul
 🎰 *Aylantirishlar:* ${user.gameStats.spinsLeft}/3
 🎡 *G'ildirak:* ${user.gameStats.wheelSpinsLeft}/1
 
@@ -230,19 +230,19 @@ async function handleHelp(msg) {
 
 🎰 *Slot Machine:*
 • Har kuni 3 ta bepul aylantirish
-• Qo'shimcha aylantirishlar uchun Yulduzlar to'lovi
+• Qo'shimcha aylantirishlar uchun Pul to'lovi
 • 70% kichik g'alaba, 25% o'rta, 5% jackpot
 
 🎡 *Kunlik G'ildirak:*
 • Har kuni 1 ta bepul aylantirish
-• Yulduzlar, taklif ballari va premium mukofotlar
+• Pul, taklif ballari va premium mukofotlar
 
 🏆 *Reyting:*
 • Top 10 o'yinchilar
 • Oylik qayta o'rnatish
 • Premium mukofotlar
 
-⭐ *Yulduzlar:*
+💰 *Pul:*
 • O'yinlarda yutib olish
 • Do'stlarni taklif qilish
 • Qo'shimcha aylantirishlar sotib olish
@@ -279,11 +279,11 @@ async function handleStats(msg) {
     const statsMessage = `📊 *O'yin statistikasi*
 
 👤 *Foydalanuvchi:* ${user.firstName}
-💰 *Balans:* ${user.balance} yulduz
+💰 *Balans:* ${user.balance} pul
 🎰 *Aylantirishlar:* ${user.gameStats.spinsLeft}/3
 🎡 *G'ildirak:* ${user.gameStats.wheelSpinsLeft}/1
 🏆 *Jami o'yinlar:* ${user.gameStats.totalGames}
-⭐ *Jami yutishlar:* ${user.gameStats.totalWinnings}
+💰 *Jami yutishlar:* ${user.gameStats.totalWinnings}
 🎯 *Eng katta yutish:* ${user.gameStats.biggestWin}
 📅 *Bugungi o'yinlar:* ${user.gameStats.gamesToday}`;
 
@@ -327,7 +327,7 @@ async function handleCallbackQuery(callbackQuery) {
     if (user) {
       const balanceMessage = `💰 *Balans ma'lumotlari*
 
-💎 *Yulduzlar:* ${user.balance}
+💰 *Pul:* ${user.balance}
 🎰 *Aylantirishlar:* ${user.gameStats.spinsLeft}/3
 🎡 *G'ildirak:* ${user.gameStats.wheelSpinsLeft}/1
 ⭐ *Taklif ballari:* ${user.referralPoints}`;
@@ -348,7 +348,7 @@ async function handleCallbackQuery(callbackQuery) {
 
 📝 *Ism:* ${user.firstName} ${user.lastName}
 🔗 *Username:* @${user.username}
-💰 *Balans:* ${user.balance} yulduz
+💰 *Balans:* ${user.balance} pul
 ⭐ *Taklif ballari:* ${user.referralPoints}
 👑 *Premium:* ${user.isPremium ? 'Ha' : 'Yo\'q'}
 📅 *Qo\'shilgan sana:* ${user.joinDate.toLocaleDateString('uz-UZ')}
@@ -391,7 +391,7 @@ async function handleWebAppData(msg) {
             user.gameStats.totalWinnings += data.winAmount;
             user.gameStats.biggestWin = Math.max(user.gameStats.biggestWin, data.winAmount);
             
-            await bot.sendMessage(chatId, `🎉 *Tabriklaymiz!* Siz ${data.winAmount} yulduz yutdingiz!`, {
+            await bot.sendMessage(chatId, `🎉 *Tabriklaymiz!* Siz ${data.winAmount} pul yutdingiz!`, {
               parse_mode: 'Markdown'
             });
           } else {
@@ -405,11 +405,11 @@ async function handleWebAppData(msg) {
         
         const statsMessage = `📊 *Yangilangan statistikalar*
 
-💰 *Balans:* ${user.balance} yulduz
+💰 *Balans:* ${user.balance} pul
 🎰 *Aylantirishlar:* ${user.gameStats.spinsLeft}/3
 🎡 *G'ildirak:* ${user.gameStats.wheelSpinsLeft}/1
 🏆 *Jami o'yinlar:* ${user.gameStats.totalGames}
-⭐ *Jami yutishlar:* ${user.gameStats.totalWinnings}`;
+💰 *Jami yutishlar:* ${user.gameStats.totalWinnings}`;
 
         await bot.sendMessage(chatId, statsMessage, { parse_mode: 'Markdown' });
         return true;
@@ -453,7 +453,7 @@ async function handleMessage(update) {
         if (user) {
           const balanceMessage = `💰 *Balans ma'lumotlari*
 
-💎 *Yulduzlar:* ${user.balance}
+💰 *Pul:* ${user.balance}
 🎰 *Aylantirishlar:* ${user.gameStats.spinsLeft}/3
 🎡 *G'ildirak:* ${user.gameStats.wheelSpinsLeft}/1
 ⭐ *Taklif ballari:* ${user.referralPoints}`;
@@ -513,7 +513,7 @@ export default async function handler(req, res) {
     }
   } else {
     res.status(200).json({ 
-      message: 'STARS YUT Bot is running!',
+      message: 'PUL TOP Bot is running!',
       status: 'active',
       timestamp: new Date().toISOString(),
       webhook: 'https://yui-new-game-7z5d.vercel.app/api/bot'

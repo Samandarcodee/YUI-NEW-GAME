@@ -26,12 +26,12 @@ const Leaderboard: React.FC = () => {
 
   const getPremiumReward = (rank: number) => {
     switch (rank) {
-      case 1: return '3 oy Premium + 1000 Yulduz';
-      case 2: return '1 oy Premium + 500 Yulduz';
-      case 3: return '2 hafta Premium + 250 Yulduz';
+      case 1: return '3 oy Premium + 1000 Pul';
+      case 2: return '1 oy Premium + 500 Pul';
+      case 3: return '2 hafta Premium + 250 Pul';
       case 4:
-      case 5: return '100 Yulduz + Maxsus belgi';
-      default: return '50 Yulduz';
+      case 5: return '100 Pul + Maxsus belgi';
+      default: return '50 Pul';
     }
   };
 
@@ -127,7 +127,7 @@ const Leaderboard: React.FC = () => {
               {formatNumber(leaderboard[1].score)}
             </div>
             <div className="text-sm text-slate-400">
-              {formatNumber(leaderboard[1].totalWinnings)} Yulduz
+              {formatNumber(leaderboard[1].totalWinnings)} Pul
             </div>
             <div className="mt-3 p-2 bg-gray-500/20 rounded-lg">
               <div className="text-xs text-slate-400 mb-1">Premium mukofot:</div>
@@ -160,7 +160,7 @@ const Leaderboard: React.FC = () => {
               {formatNumber(leaderboard[0].score)}
             </div>
             <div className="text-sm text-slate-400">
-              {formatNumber(leaderboard[0].totalWinnings)} Yulduz
+              {formatNumber(leaderboard[0].totalWinnings)} Pul
             </div>
             <div className="mt-3 p-2 bg-yellow-500/20 rounded-lg">
               <div className="text-xs text-slate-400 mb-1">Premium mukofot:</div>
@@ -189,7 +189,7 @@ const Leaderboard: React.FC = () => {
               {formatNumber(leaderboard[2].score)}
             </div>
             <div className="text-sm text-slate-400">
-              {formatNumber(leaderboard[2].totalWinnings)} Yulduz
+              {formatNumber(leaderboard[2].totalWinnings)} Pul
             </div>
             <div className="mt-3 p-2 bg-amber-500/20 rounded-lg">
               <div className="text-xs text-slate-400 mb-1">Premium mukofot:</div>
@@ -260,7 +260,7 @@ const Leaderboard: React.FC = () => {
                 <div className="text-lg font-bold text-orange-400">
                   {formatNumber(entry.totalWinnings)}
                 </div>
-                <div className="text-sm text-slate-400">Yulduz</div>
+                <div className="text-sm text-slate-400">Pul</div>
               </div>
 
               {/* Premium Reward */}
@@ -317,7 +317,7 @@ const Leaderboard: React.FC = () => {
               </div>
               <div>
                 <div className="font-semibold text-white">Do\'stlarni taklif qiling</div>
-                <div className="text-sm text-slate-300">Har bir muvaffaqiyatli taklif uchun bonus Yulduzlar oling</div>
+                <div className="text-sm text-slate-300">Har bir muvaffaqiyatli taklif uchun bonus Pul oling</div>
               </div>
             </div>
             

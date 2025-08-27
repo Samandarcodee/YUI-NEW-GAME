@@ -17,8 +17,8 @@ const userData = new Map();
 // Bot configuration
 const botConfig = {
   token: '8081107965:AAEb0sgswU1P66H2EVUyZhZZZqqwsp7v3E8',
-  botName: 'Pul_toptt_bot',
-  appName: 'O\'yin Dunyosi',
+  botName: 'PUL_TOP_BOT',
+  appName: 'Pul Top O\'yini',
   appDescription: 'Uzbek gaming platform with Slot Machine, Daily Wheel, and Leaderboard',
   webAppUrl: 'https://yui-new-game-5484.vercel.app'
 };
@@ -106,15 +106,15 @@ function setupBot() {
       // Initialize user
       const user = initializeUser(userId, msg.from);
       
-      const welcomeMessage = `🎮 *O'yin Dunyosiga xush kelibsiz, ${user.firstName}!*
+      const welcomeMessage = `🎮 *PUL TOP - O'yin Dunyosiga xush kelibsiz, ${user.firstName}!*
 
 Bu bot orqali siz:
 • 🎰 Slot Machine o'yinini o'ynashingiz mumkin
 • 🎡 Kunlik g'ildirakni aylantirishingiz mumkin  
 • 🏆 Reytingda raqobatlashishingiz mumkin
-• ⭐ Yulduzlar yutib olishingiz mumkin
+• 💰 Pul yutib olishingiz mumkin
 
-💰 *Balansingiz:* ${user.balance} yulduz
+💰 *Balansingiz:* ${user.balance} pul
 🎰 *Aylantirishlar:* ${user.gameStats.spinsLeft}/3
 🎡 *G'ildirak:* ${user.gameStats.wheelSpinsLeft}/1
 
@@ -144,7 +144,7 @@ O'yinni boshlash uchun "🎮 O'yinni boshlash" tugmasini bosing!`;
       
       const gameMessage = `🎮 *O'yin platformasi*
 
-💰 *Balansingiz:* ${user.balance} yulduz
+💰 *Balansingiz:* ${user.balance} pul
 🎰 *Aylantirishlar:* ${user.gameStats.spinsLeft}/3
 🎡 *G'ildirak:* ${user.gameStats.wheelSpinsLeft}/1
 
@@ -172,19 +172,19 @@ O'yin platformasini ochish uchun quyidagi tugmani bosing:`;
 
 🎰 *Slot Machine:*
 • Har kuni 3 ta bepul aylantirish
-• Qo'shimcha aylantirishlar uchun Yulduzlar to'lovi
+• Qo'shimcha aylantirishlar uchun Pul to'lovi
 • 70% kichik g'alaba, 25% o'rta, 5% jackpot
 
 🎡 *Kunlik G'ildirak:*
 • Har kuni 1 ta bepul aylantirish
-• Yulduzlar, taklif ballari va premium mukofotlar
+• Pul, taklif ballari va premium mukofotlar
 
 🏆 *Reyting:*
 • Top 10 o'yinchilar
 • Oylik qayta o'rnatish
 • Premium mukofotlar
 
-⭐ *Yulduzlar:*
+💰 *Pul:*
 • O'yinlarda yutib olish
 • Do'stlarni taklif qilish
 • Qo'shimcha aylantirishlar sotib olish
@@ -216,11 +216,11 @@ O'yinni boshlash uchun /game buyrug'ini yoki "🎮 O'yinni boshlash" tugmasini b
         const statsMessage = `📊 *O'yin statistikasi*
 
 👤 *Foydalanuvchi:* ${user.firstName}
-💰 *Balans:* ${user.balance} yulduz
+💰 *Balans:* ${user.balance} pul
 🎰 *Aylantirishlar:* ${user.gameStats.spinsLeft}/3
 🎡 *G'ildirak:* ${user.gameStats.wheelSpinsLeft}/1
 🏆 *Jami o'yinlar:* ${user.gameStats.totalGames}
-⭐ *Jami yutishlar:* ${user.gameStats.totalWinnings}
+💰 *Jami yutishlar:* ${user.gameStats.totalWinnings}
 🎯 *Eng katta yutish:* ${user.gameStats.biggestWin}
 📅 *Bugungi o'yinlar:* ${user.gameStats.gamesToday}`;
 
@@ -253,7 +253,7 @@ O'yinni boshlash uchun /game buyrug'ini yoki "🎮 O'yinni boshlash" tugmasini b
 
 📝 *Ism:* ${user.firstName} ${user.lastName}
 🔗 *Username:* @${user.username}
-💰 *Balans:* ${user.balance} yulduz
+💰 *Balans:* ${user.balance} pul
 ⭐ *Taklif ballari:* ${user.referralPoints}
 👑 *Premium:* ${user.isPremium ? 'Ha' : 'Yo\'q'}
 📅 *Qo\'shilgan sana:* ${user.joinDate.toLocaleDateString('uz-UZ')}
@@ -286,14 +286,14 @@ O'yinni boshlash uchun /game buyrug'ini yoki "🎮 O'yinni boshlash" tugmasini b
       if (user) {
         const balanceMessage = `💰 *Balans ma'lumotlari*
 
-💎 *Yulduzlar:* ${user.balance}
+💰 *Pul:* ${user.balance}
 🎰 *Aylantirishlar:* ${user.gameStats.spinsLeft}/3
 🎡 *G'ildirak:* ${user.gameStats.wheelSpinsLeft}/1
 ⭐ *Taklif ballari:* ${user.referralPoints}
 
 💡 *Qo'shimcha aylantirishlar sotib olish:*
-🎰 1 ta aylantirish: 50 yulduz
-🎡 1 ta g'ildirak: 25 yulduz`;
+🎰 1 ta aylantirish: 50 pul
+🎡 1 ta g'ildirak: 25 pul`;
 
         const keyboard = {
           inline_keyboard: [
@@ -325,7 +325,7 @@ O'yinni boshlash uchun /game buyrug'ini yoki "🎮 O'yinni boshlash" tugmasini b
         if (user) {
           const balanceMessage = `💰 *Balans ma'lumotlari*
 
-💎 *Yulduzlar:* ${user.balance}
+💰 *Pul:* ${user.balance}
 🎰 *Aylantirishlar:* ${user.gameStats.spinsLeft}/3
 🎡 *G'ildirak:* ${user.gameStats.wheelSpinsLeft}/1
 ⭐ *Taklif ballari:* ${user.referralPoints}`;
@@ -339,7 +339,7 @@ O'yinni boshlash uchun /game buyrug'ini yoki "🎮 O'yinni boshlash" tugmasini b
 
 📝 *Ism:* ${user.firstName} ${user.lastName}
 🔗 *Username:* @${user.username}
-💰 *Balans:* ${user.balance} yulduz
+💰 *Balans:* ${user.balance} pul
 ⭐ *Taklif ballari:* ${user.referralPoints}
 👑 *Premium:* ${user.isPremium ? 'Ha' : 'Yo\'q'}
 📅 *Qo\'shilgan sana:* ${user.joinDate.toLocaleDateString('uz-UZ')}
@@ -381,7 +381,7 @@ O'yinni boshlash uchun /game buyrug'ini yoki "🎮 O'yinni boshlash" tugmasini b
                 user.gameStats.totalWinnings += data.winAmount;
                 user.gameStats.biggestWin = Math.max(user.gameStats.biggestWin, data.winAmount);
                 
-                bot.sendMessage(chatId, `🎉 *Tabriklaymiz!* Siz ${data.winAmount} yulduz yutdingiz!`, {
+                bot.sendMessage(chatId, `🎉 *Tabriklaymiz!* Siz ${data.winAmount} pul yutdingiz!`, {
                   parse_mode: 'Markdown'
                 });
               } else {
@@ -396,7 +396,7 @@ O'yinni boshlash uchun /game buyrug'ini yoki "🎮 O'yinni boshlash" tugmasini b
               if (data.reward) {
                 if (data.reward.type === 'stars') {
                   user.balance += data.reward.amount;
-                  bot.sendMessage(chatId, `🎉 *G'ildirak natijasi:* ${data.reward.amount} yulduz qo'shildi!`, {
+                  bot.sendMessage(chatId, `🎉 *G'ildirak natijasi:* ${data.reward.amount} pul qo'shildi!`, {
                     parse_mode: 'Markdown'
                   });
                 } else if (data.reward.type === 'referral') {
@@ -414,11 +414,11 @@ O'yinni boshlash uchun /game buyrug'ini yoki "🎮 O'yinni boshlash" tugmasini b
             // Send updated stats
             const statsMessage = `📊 *Yangilangan statistikalar*
 
-💰 *Balans:* ${user.balance} yulduz
+💰 *Balans:* ${user.balance} pul
 🎰 *Aylantirishlar:* ${user.gameStats.spinsLeft}/3
 🎡 *G'ildirak:* ${user.gameStats.wheelSpinsLeft}/1
 🏆 *Jami o'yinlar:* ${user.gameStats.totalGames}
-⭐ *Jami yutishlar:* ${user.gameStats.totalWinnings}`;
+💰 *Jami yutishlar:* ${user.gameStats.totalWinnings}`;
 
             bot.sendMessage(chatId, statsMessage, { parse_mode: 'Markdown' });
           }

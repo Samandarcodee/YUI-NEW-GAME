@@ -203,7 +203,7 @@ const SlotMachine: React.FC = () => {
               className="bg-gradient-to-r from-orange-500 to-yellow-500 hover:from-orange-600 hover:to-yellow-600 text-white font-bold py-3 px-6 rounded-xl shadow-lg transform hover:scale-105 transition-all duration-200 active:scale-95 flex items-center gap-2"
             >
               <Star className="w-5 h-5" />
-              Aylantirish sotib olish ({GAME_CONFIG.spinCost} Yulduz)
+              Aylantirish sotib olish ({GAME_CONFIG.spinCost} Pul)
             </motion.button>
           )}
         </div>
@@ -236,7 +236,7 @@ const SlotMachine: React.FC = () => {
                 <div className={`bg-gradient-to-r ${getWinTypeColor(lastResult.winType)} text-white font-bold px-4 py-2 rounded-full shadow-lg`}>
                   <div className="flex items-center justify-center gap-2">
                     {getWinTypeIcon(lastResult.winType)}
-                    {lastResult.winAmount.toLocaleString()} Yulduz!
+                    {lastResult.winAmount.toLocaleString()} Pul!
                   </div>
                   <div className="text-sm mt-1">
                     {lastResult.winType === 'jackpot' ? 'JACKPOT' : 
@@ -286,7 +286,7 @@ const SlotMachine: React.FC = () => {
               
               <div className={`bg-gradient-to-r ${getWinTypeColor(lastResult.winType)} text-white font-bold px-4 py-2 rounded-full shadow-lg mb-4`}>
                 <div className="text-xl font-bold">
-                  {lastResult.winAmount.toLocaleString()} Yulduz!
+                  {lastResult.winAmount.toLocaleString()} Pul!
                 </div>
                 <div className="text-sm">
                   {lastResult.winType === 'jackpot' ? 'JACKPOT' : 
@@ -318,7 +318,7 @@ const SlotMachine: React.FC = () => {
           {SLOT_SYMBOLS.map((symbol) => (
             <div key={symbol.symbol} className="text-center">
               <div className="text-3xl mb-2">{symbol.symbol}</div>
-              <div className="text-sm text-slate-300">{symbol.value} Yulduz</div>
+              <div className="text-sm text-slate-300">{symbol.value} Pul</div>
             </div>
           ))}
         </div>

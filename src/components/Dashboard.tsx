@@ -54,7 +54,7 @@ const Dashboard: React.FC = () => {
             <div className="text-3xl font-bold text-orange-400">
               {user.balance.toLocaleString()}
             </div>
-            <div className="text-sm text-slate-300">Yulduzlar balansi</div>
+            <div className="text-sm text-slate-300">Pul balansi</div>
           </div>
         </div>
       </motion.div>
@@ -128,8 +128,8 @@ const Dashboard: React.FC = () => {
         
         <div className="mb-4">
           <div className="flex justify-between text-sm text-slate-300 mb-2">
-            <span>Hozirgi: {gameStats.totalWinnings.toLocaleString()} Yulduz</span>
-            <span>Maqsad: 10,000 Yulduz</span>
+            <span>Hozirgi: {gameStats.totalWinnings.toLocaleString()} Pul</span>
+            <span>Maqsad: 10,000 Pul</span>
           </div>
           <div className="w-full bg-slate-700/50 rounded-full h-3">
             <motion.div
@@ -195,7 +195,7 @@ const Dashboard: React.FC = () => {
         
         <div className="bg-gradient-to-r from-pink-500/20 to-purple-500/20 rounded-xl p-4 mb-4">
           <p className="text-white/90 mb-2">
-            Do'stlaringizni taklif qiling va har bir muvaffaqiyatli taklif uchun <span className="font-bold text-orange-400">100 Yulduz</span> oling!
+            Do'stlaringizni taklif qiling va har bir muvaffaqiyatli taklif uchun <span className="font-bold text-orange-400">100 Pul</span> oling!
           </p>
           <p className="text-sm text-slate-300">
             Sizning taklif havolangiz: <span className="font-mono text-orange-400">t.me/gamehub?start=ref_{user.username}</span>

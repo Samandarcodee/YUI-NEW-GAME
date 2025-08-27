@@ -217,7 +217,7 @@ const DailyWheel: React.FC = () => {
               className="bg-gradient-to-r from-orange-500 to-yellow-500 hover:from-orange-600 hover:to-yellow-600 text-white font-bold py-3 px-6 rounded-xl shadow-lg transform hover:scale-105 transition-all duration-200 active:scale-95 flex items-center gap-2"
             >
               <Star className="w-5 h-5" />
-              Aylantirish sotib olish ({GAME_CONFIG.wheelSpinCost} Yulduz)
+              Aylantirish sotib olish ({GAME_CONFIG.wheelSpinCost} Pul)
             </motion.button>
           )}
         </div>
@@ -241,7 +241,7 @@ const DailyWheel: React.FC = () => {
             </div>
             
             <div className="text-slate-300">
-              Segment: {lastResult.segment + 1} | Turi: {lastResult.type === 'stars' ? 'Yulduzlar' : 
+              Segment: {lastResult.segment + 1} | Turi: {lastResult.type === 'stars' ? 'Pul' : 
                                                            lastResult.type === 'referral' ? 'Taklif' : 
                                                            lastResult.type === 'premium' ? 'Premium' : 'Qayta urinish'}
             </div>
@@ -286,7 +286,7 @@ const DailyWheel: React.FC = () => {
                   {lastResult.reward}
                 </div>
                 <div className="text-sm">
-                  {lastResult.type === 'stars' ? 'YULDUZLAR' : 
+                  {lastResult.type === 'stars' ? 'PUL' : 
                    lastResult.type === 'referral' ? 'TAKLIF' : 
                    lastResult.type === 'premium' ? 'PREMIUM' : 'QAYTA URINISH'} MUKOFOTI!
                 </div>
@@ -322,7 +322,7 @@ const DailyWheel: React.FC = () => {
               <div className="flex-1">
                 <div className="font-semibold text-white">{segment.reward}</div>
                 <div className="text-sm text-slate-300">
-                  {segment.type === 'stars' ? `${segment.amount} Yulduz` : 
+                  {segment.type === 'stars' ? `${segment.amount} Pul` : 
                    segment.type === 'referral' ? `${segment.amount} Ball` :
                    segment.type === 'premium' ? 'Premium sinov' : 'Qayta urinish'}
                 </div>
