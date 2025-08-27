@@ -1,0 +1,5 @@
+[33m41ad99a[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m)[m Update bot to STARS YUT @STARS_YUTT_BOT with new token
+[33m30a3792[m Completely rewrite bot for Vercel serverless functions - fix webhook handling
+[33meef182f[m Update bot configuration to use new custom domain: stolgame.vercel.app
+[33m2b053a3[m Update README and trigger Vercel auto-deploy
+[33me74bdb5[m Add Telegram bot API for Vercel deployment - both Mini App and Bot on Vercel
