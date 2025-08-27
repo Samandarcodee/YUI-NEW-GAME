@@ -8,7 +8,7 @@ const botConfig = {
   token: process.env.BOT_TOKEN || '8245319536:AAE9ofodgLDe38G44wRoiucsAjiADh5jdjI',
   botName: 'STARS_YUTT_BOT',
   appName: 'O\'yin Dunyosi',
-  webAppUrl: 'https://telegram-mini-app-game-al28kcqoq-samandarcodees-projects.vercel.app'
+  webAppUrl: 'https://yui-new-game-7z5d.vercel.app'
 };
 
 // User data storage (in production, use database)
@@ -516,7 +516,7 @@ export default async function handler(req, res) {
       message: 'STARS YUT Bot is running!',
       status: 'active',
       timestamp: new Date().toISOString(),
-      webhook: 'https://telegram-mini-app-game-al28kcqoq-samandarcodees-projects.vercel.app/api/bot'
+      webhook: 'https://yui-new-game-7z5d.vercel.app/api/bot'
     });
   }
 }
