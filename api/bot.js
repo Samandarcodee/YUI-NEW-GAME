@@ -5,8 +5,8 @@ import TelegramBot from 'node-telegram-bot-api';
 
 // Bot configuration
 const botConfig = {
-  token: process.env.BOT_TOKEN || '8081107965:AAEb0sgswU1P66H2EVUyZhZZZqqwsp7v3E8',
-  botName: 'Pul_toptt_bot',
+  token: process.env.BOT_TOKEN || '8245319536:AAE9ofodgLDe38G44wRoiucsAjiADh5jdjI',
+  botName: 'STARS_YUTT_BOT',
   appName: 'O\'yin Dunyosi',
   webAppUrl: 'https://stolgame.vercel.app'
 };
@@ -65,7 +65,7 @@ const bot = new TelegramBot(botConfig.token, { polling: false });
 
 // Set bot commands
 bot.setMyCommands([
-  { command: 'start', description: 'Start the game bot' },
+  { command: 'start', description: 'Start the STARS YUT game bot' },
   { command: 'game', description: 'Open the gaming platform' },
   { command: 'help', description: 'Get help and instructions' },
   { command: 'stats', description: 'View your game statistics' },
@@ -81,7 +81,7 @@ async function handleStart(msg) {
   // Initialize user
   const user = initializeUser(userId, msg.from);
   
-  const welcomeMessage = `🎮 *O'yin Dunyosiga xush kelibsiz, ${user.firstName}!*
+  const welcomeMessage = `🎮 *STARS YUT - O'yin Dunyosiga xush kelibsiz, ${user.firstName}!*
 
 Bu bot orqali siz:
 • 🎰 Slot Machine o'yinini o'ynashingiz mumkin
