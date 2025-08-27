@@ -8,7 +8,7 @@ const botConfig = {
   token: process.env.BOT_TOKEN || '8245319536:AAE9ofodgLDe38G44wRoiucsAjiADh5jdjI',
   botName: 'STARS_YUTT_BOT',
   appName: 'O\'yin Dunyosi',
-  webAppUrl: 'https://stolgame.vercel.app'
+  webAppUrl: 'https://yui-new-game-7z5d.vercel.app'
 };
 
 // User data storage (in production, use database)
@@ -41,6 +41,7 @@ function initializeUser(userId, userInfo) {
       leaderboardScore: 0
     });
   }
+  
   return userData.get(userId);
 }
 
@@ -58,6 +59,79 @@ function updateUserData(userId, updates) {
     return true;
   }
   return false;
+}
+
+// Security validation function
+function validateWebhookData(update) {
+  // Check if update object exists and has required structure
+  if (!update || typeof update !== 'object') {
+    console.error('Invalid update object received');
+    return false;
+  }
+  
+  // Validate message structure
+  if (update.message) {
+    const message = update.message;
+    if (!message.from || !message.from.id || !message.chat || !message.chat.id) {
+      console.error('Invalid message structure received');
+      return false;
+    }
+    
+    // Validate user ID format (should be a positive integer)
+    if (!Number.isInteger(message.from.id) || message.from.id <= 0) {
+      console.error('Invalid user ID format:', message.from.id);
+      return false;
+    }
+    
+    // Validate chat ID format
+    if (!Number.isInteger(message.chat.id)) {
+      console.error('Invalid chat ID format:', message.chat.id);
+      return false;
+    }
+  }
+  
+  // Validate callback query structure
+  if (update.callback_query) {
+    const callback = update.callback_query;
+    if (!callback.from || !callback.from.id || !callback.data) {
+      console.error('Invalid callback query structure received');
+      return false;
+    }
+  }
+  
+  // Validate web app data structure
+  if (update.message?.web_app_data) {
+    const webAppData = update.message.web_app_data;
+    if (!webAppData.data || typeof webAppData.data !== 'string') {
+      console.error('Invalid web app data structure received');
+      return false;
+    }
+  }
+  
+  return true;
+}
+
+// Rate limiting for user actions
+const userActionLimits = new Map();
+const RATE_LIMIT_WINDOW = 1000; // 1 second
+const MAX_ACTIONS_PER_WINDOW = 5;
+
+function checkRateLimit(userId) {
+  const now = Date.now();
+  const userActions = userActionLimits.get(userId) || [];
+  
+  // Remove old actions outside the window
+  const recentActions = userActions.filter(time => now - time < RATE_LIMIT_WINDOW);
+  
+  if (recentActions.length >= MAX_ACTIONS_PER_WINDOW) {
+    return false; // Rate limited
+  }
+  
+  // Add current action
+  recentActions.push(now);
+  userActionLimits.set(userId, recentActions);
+  
+  return true; // Allowed
 }
 
 // Create bot instance
@@ -407,25 +481,42 @@ export default async function handler(req, res) {
     try {
       console.log('Received webhook:', req.body);
       
+      // Validate webhook data
+      if (!validateWebhookData(req.body)) {
+        res.status(400).json({ error: 'Invalid webhook data' });
+        return;
+      }
+
       // Handle Telegram webhook
       const update = req.body;
-      const success = await handleMessage(update);
       
-      if (success) {
-        res.status(200).json({ ok: true, handled: true });
-      } else {
-        res.status(200).json({ ok: true, handled: false });
+      // Check rate limiting for user actions
+      const userId = update.message?.from?.id || update.callback_query?.from?.id;
+      if (userId && !checkRateLimit(userId)) {
+        console.log(`Rate limited for user ${userId}`);
+        res.status(429).json({ error: 'Too many requests' });
+        return;
       }
+      
+      if (update.message) {
+        await handleMessage(update.message);
+      } else if (update.callback_query) {
+        await handleCallbackQuery(update.callback_query);
+      } else if (update.message?.web_app_data) {
+        await handleWebAppData(update.message);
+      }
+      
+      res.status(200).json({ ok: true, handled: true });
     } catch (error) {
       console.error('Webhook error:', error);
       res.status(500).json({ error: 'Internal server error' });
     }
   } else {
     res.status(200).json({ 
-      message: 'YUI Game Bot is running!',
+      message: 'STARS YUT Bot is running!',
       status: 'active',
       timestamp: new Date().toISOString(),
-      webhook: 'https://stolgame.vercel.app/api/bot'
+      webhook: 'https://yui-new-game-7z5d.vercel.app/api/bot'
     });
   }
 }
